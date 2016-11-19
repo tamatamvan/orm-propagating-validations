@@ -3,7 +3,7 @@
 const mongoose = require('mongoose')
 const validate = require('mongoose-validator');
 
-var emailValidator = [
+let emailValidator = [
   validate({
     validator: 'isEmail',
     message: 'Please provide a valid email address'
