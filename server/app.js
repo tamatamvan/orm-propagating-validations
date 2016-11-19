@@ -11,6 +11,18 @@ const apiEo = require('./routes/apiEo');
 
 const app = express();
 
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://127.0.0.1/orm-eos', (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('Database connected!');
+  }
+});
+
+const cors = require('cors');
+app.use(cors());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -33,8 +45,8 @@ app.use((req, res, next) => {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') => {
-  app.use((err, req, res, next) {
+if (app.get('env') === 'development') {
+  app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,

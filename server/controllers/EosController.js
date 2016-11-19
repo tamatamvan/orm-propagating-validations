@@ -1,27 +1,27 @@
 'use strict'
-const Eos = require('../Models/Eos');
+const Eos = require('../models/Eos');
 
 let createEvent = (req, res, next) => {
   Eos.create({
-    eventName: req.body.eventName,
+    eventName: req.body.name,
     eventTitle: req.body.title,
     email: req.body.email,
-    dateCreated: req.body.dateCreated
+    dateCreated: req.body.date
   }, (err, data) => {
     if (err) {
-      console.log(err);
-      res.json(err)
+      console.log('ini error' + err);
+      res.send(err)
     } else {
       res.json(data);
     }
   })
 }
 
-let listEvents = () => {
+let listEvents = (req, res, next) => {
   Eos.find({}, (err, data) => {
     if (err) {
       console.log(err);
-      res.json(err)
+      res.send(err)
     } else {
       res.json(data);
     }
