@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Client Server Scooping</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title">
+  </head>
+  <body>
+
+    <div class="container" id="app">
+      <div class="jumbotron text-center">
+        <h1>ORM/ODM Propagating Validations </h1>
+      </div>
+      <form onsubmit="e.preventDefault()">
+        <div class="form-group">
+          <label class="control-label" for="eventName">Event Name</label>
+          <input class="form-control" id="eventName" type="text" placeholder="Enter event name . . ." required>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="eventTitle">Event Title</label>
+          <input class="form-control" id="eventTitle" type="text" placeholder="Enter event title . . ." required>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="eoEmail">EO's Email</label>
+          <input class="form-control" id="eoEmail" type="email" placeholder="Enter EO's email . . ." required>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="dateCreated">Date Created</label>
+          <input class="form-control" id="dateCreated" type="date"required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-info" onclick="postNewEO()">Submit <i class="glyphicon glyphicon-info"></i></button>
+        </div>
+      </form>
+
+      <table class="table table-striped table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>EO's email</th>
+            <th>Date Created</th>
+          </tr>
+        </thead>
+
+        <tbody id="list-eos">
+
+        </tbody>
+      </table>
+    </div>
+
+    <script src="js/jquery.min.js" charset="utf-8"></script>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/vue@2.0.7/dist/vue.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+  </body>
+</html>
